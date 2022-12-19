@@ -11,14 +11,20 @@ export default function MainBody(props) {
           );
      }, []);
 
-     const [CartBoxItems, setCartBoxItems] = useState([])
+     const [CartBoxItems, setCartBoxItems] = useState([]);
 
      function addInCart(item) {
-          setCartBoxItems(CartBoxItems+item)
+          setCartBoxItems(CartBoxItems + item);
      }
 
      return (
-          <div w-full h-full border-2 border-red relative>
+          <div
+               w-full
+               h-full
+               border-2
+               border-red
+               relative
+          >
                <div
                     id="CartCorner"
                     className="absolute m-auto right-0 top-16"
@@ -26,14 +32,16 @@ export default function MainBody(props) {
                >
                     <CartBox items={CartBoxItems} />
                </div>
-
-               {itemList.map(item => {
-                   
-                    return(<ProductBox
-                         item={item}
-                         key={item.id}
-                    />)
-               })}
+                
+                    {itemList.map((item) => {
+                         return (
+                              <ProductBox
+                                   item={item}
+                                   key={item.id}
+                              />
+                         );
+                    })}
+                
           </div>
      );
 }

@@ -1,6 +1,8 @@
-import React from "react";
+import React,{useContext} from "react";
+import cartContext from "../Context/CartContent/cartContext";
 
 function Navbar(props) {
+     const cartNumber = useContext(cartContext)
      return (
           <div className="md:h-24 h-12">
                <div className="md:h-20 h-10 flex borderb-1px justify-between">
@@ -46,11 +48,11 @@ function Navbar(props) {
                                    alt="kart logo"
                                    className="w-6"
                               />
-                              {props.itemQuan &&
+                              {cartNumber.items && (
                                    <div className="w-5 h-4 rounded-md bg-orange-400 absolute m-auto -top-1 -right-1 text-center text-xs text-white">
-                                        {props.itemQuan}
+                                        {cartNumber.items}
                                    </div>
-                              }
+                              )}
                          </button>
                          <div
                               id="userPicBox"
