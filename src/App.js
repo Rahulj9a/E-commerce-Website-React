@@ -39,17 +39,16 @@ function App() {
      return (
           <>
                <CartState>
-                    <div className="lg:w-9/12 md:w-11/12 sm:w-11/12 absolute m-auto left-0 right-0 h-full">
-                         <div>
+                    <div className="lg:w-9/12 md:w-11/12 sm:w-11/12 absolute m-auto left-0 right-0 h-full ">
+                         <div  >
                               <Navbar
                                    logo="./images/logo.svg"
                                    navLinks={navbarLinks}
                                    userPic="./images/image-avatar.png"
                                    cartBoxVisibility={cartBoxVisibility}
-                                    
                               />
                          </div>
-                         <div className="h-6/12">
+                         <div className="h-6/12 ">
                               <MainBody cartBoxVisibility={showCartBox} />
                          </div>
                     </div>

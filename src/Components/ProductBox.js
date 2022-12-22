@@ -68,11 +68,11 @@ export default function ProductBox(props) {
                               >
                                    <img src="./images/icon-next.svg" />
                               </button>
-                              <img src={windowSrc} />
+                              <img className="rounded-md" src={windowSrc} />
                          </div>
                     </div>
                )}
-               <div className="absolute w-full h-full gap-2 flex md:flex-row flex-col md:self-center items-center md:items-start">
+               <div className="absolute w-full h-full gap-4 flex md:flex-row flex-col md:self-center items-center md:items-start">
                     <div className="md:w-1/2 w-11/12 h-full flex items-center">
                          <ProductVisual
                               className="flex"
@@ -81,7 +81,7 @@ export default function ProductBox(props) {
                               showFull={showSrc}
                          />
                     </div>
-                    <div className="md:w-1/2 w-11/12 h-full border-2 border-green-600 flex items-center">
+                    <div className="md:w-1/2 w-11/12 h-full  flex items-center">
                          <ProductDescription aboutText={props.item.aboutText} />
                     </div>
                </div>
