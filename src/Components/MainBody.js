@@ -30,7 +30,7 @@ export default function MainBody(props) {
                     className="absolute m-auto right-0 top-16"
                     style={{ display: `${props.cartBoxVisibility}` }}
                >
-                    <CartBox items={CartBoxItems} />
+                    <CartBox items={CartBoxItems} list={itemList} />
                </div>
                 
                     {itemList.map((item) => {
