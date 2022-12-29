@@ -14,7 +14,7 @@ export default function ProductVisual(props) {
                          return (
                               <div
                                    className="w-1/5 hover:opacity-60 "
-                                   
+                                   key={index}
                               >
                                    <img
                                         onClick={props.showFull}

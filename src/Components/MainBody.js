@@ -31,13 +31,16 @@ export default function MainBody(props) {
                     <CartBox  list={itemList} />
                </div>
                 
-                    {itemList.map((item) => {
+               {itemList.map((item) => {
+                    let id = item.aboutText.id
+                    console.log(id);
                          return (
                               <ProductBox
+                                   key={id}
                                    item={item}
-                                   key={item.id}
                               />
                          );
+                    
                     })}
                 
           </div>

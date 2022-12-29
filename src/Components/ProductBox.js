@@ -43,7 +43,7 @@ export default function ProductBox(props) {
      };
 
      return (
-          <div key={props.key}>
+          <div  >
                {shouldShow && (
                     <div
                          id="FullWindow"
