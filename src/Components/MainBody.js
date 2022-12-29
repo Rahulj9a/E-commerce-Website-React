@@ -11,11 +11,9 @@ export default function MainBody(props) {
           );
      }, []);
 
-     const [CartBoxItems, setCartBoxItems] = useState([]);
+      
 
-     function addInCart(item) {
-          setCartBoxItems(CartBoxItems + item);
-     }
+     
 
      return (
           <div
@@ -30,7 +28,7 @@ export default function MainBody(props) {
                     className="absolute m-auto right-0 top-16"
                     style={{ display: `${props.cartBoxVisibility}` }}
                >
-                    <CartBox items={CartBoxItems} list={itemList} />
+                    <CartBox  list={itemList} />
                </div>
                 
                     {itemList.map((item) => {

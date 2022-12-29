@@ -13,10 +13,20 @@ export default function ProductDescription(props) {
            
           if(addQuantity) setaddQuantity(addQuantity-1);
      }
-     function updateinCart(){
-          cartDetails.updateItems(addQuantity, props.aboutText.id)
+     function updateinCart() {
+          let details = {
+               
+               image: props.thumbnail,
+               productname: props.aboutText.name,
+               price: props.aboutText.price,
+               discount: props.aboutText.discount.active
+                    ? props.aboutText.discount.percent
+                    : 0,
+          };
+          cartDetails.updateItems(addQuantity, props.aboutText.id,details)
           setaddQuantity(0)
      }
+      
       
      return (
           <div className="w-full p-2 flex ">
