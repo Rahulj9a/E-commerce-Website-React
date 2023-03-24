@@ -1,11 +1,24 @@
 import "./App.css";
 import React, { useState } from "react";
+import { useEffect } from "react";
 import Navbar from "./Components/Navbar";
 import MainBody from "./Components/MainBody";
 import CartState from "./Context/CartContent/CartState";
+import { useDispatch } from "react-redux";
+import { fetchItems } from "./State/action-creator";
 
 
 function App() {
+
+     const dispatch = useDispatch();
+
+     useEffect(() => {
+          dispatch(fetchItems());
+     }, []);
+
+     
+
+
      const [showCartBox, setshowCartBox] = useState("none");
      function cartBoxVisibility() {
           if (showCartBox === "flex") {

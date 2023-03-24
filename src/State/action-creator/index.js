@@ -1,8 +1,10 @@
 export const fetchItems = () => {
      return async (dispatch) => {
-          const response = await fetch("./productDetail.json");
+          dispatch({ type: "FETCH_ITEMS_REQUEST"});
+          const response = await fetch("/productDetail.json");
           const items = await response.json();
           dispatch({ type: "FETCH_ITEMS_SUCCESS", payload: items });
+           
      };
 };
 

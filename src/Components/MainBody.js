@@ -1,39 +1,39 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+
 import CartBox from "./CartBox";
 import ProductBox from "./ProductBox";
+import { useSelector } from "react-redux";
 
 export default function MainBody(props) {
-     const [itemList, setitemList] = useState([]);
-     useEffect(() => {
-          fetch("./productDetail.json").then((res) =>
-               res.json().then((data) => setitemList(data.itemlist)),
-          );
-     }, []);
-
-      
-
      
+     const { items, loading } = useSelector(  (state) =>   state.items);
+     let itemList = items.itemlist 
+     console.log(loading)
+     console.log(itemList)
 
-     return (
-          <div
-               w-full
-               h-full
-               border-2
-               border-red
-               relative
-          >
+
+     if (loading) {
+          return <div>Loading...</div>;
+     } else {
+          return (
                <div
-                    id="CartCorner"
-                    className="absolute m-auto right-0 top-16"
-                    style={{ display: `${props.cartBoxVisibility}` }}
+                    w-full
+                    h-full
+                    border-2
+                    border-red
+                    relative
                >
-                    <CartBox  list={itemList} />
-               </div>
+                    <div
+                         id="CartCorner"
+                         className="absolute m-auto right-0 top-16"
+                         style={{ display: `${props.cartBoxVisibility}` }}
+                    >
+                         <CartBox list={itemList} />
+                    </div>
                 
-               {itemList.map((item) => {
-                    let id = item.aboutText.id
-                    console.log(id);
+                    {itemList.map((item) => {
+                         let id = item.aboutText.id
+                         console.log(id);
                          return (
                               <ProductBox
                                    key={id}
@@ -43,6 +43,7 @@ export default function MainBody(props) {
                     
                     })}
                 
-          </div>
-     );
+               </div>
+          );
+     }
 }
