@@ -1,3 +1,11 @@
+export const fetchItems = () => {
+     return async (dispatch) => {
+          const response = await fetch("./productDetail.json");
+          const items = await response.json();
+          dispatch({ type: "FETCH_ITEMS_SUCCESS", payload: items });
+     };
+};
+
 export const addItemToCart = (item) => {
      return (dispatch) => {
           dispatch({
