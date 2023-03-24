@@ -5,9 +5,7 @@ import ProductVisual from "./ProductBoxInsider/ProductVisual";
 export default function ProductBox(props) {
      const [shouldShow, setshouldShow] = useState(false);
      const [shownImgIndex, setshownImgIndex] = useState(0);
-     const [windowSrc, setwindowSrc] = useState(
-          props.item.images.main[0],
-     );
+     const [windowSrc, setwindowSrc] = useState(props.item.images.main[0]);
      let ChangeVis = () => {
           if (shouldShow) {
                setshouldShow(false);
@@ -17,33 +15,32 @@ export default function ProductBox(props) {
      };
      let showSrc = (e) => {
           ChangeVis();
-          let src = e.target.id.replace("thumbnail", "");
-          setshownImgIndex(src);
-          setwindowSrc(props.item.images.main[src]);
+
+          setwindowSrc(props.item.images.main[0]);
      };
      let previousImg = () => {
           if (props.item.images.main[shownImgIndex - 1]) {
                setshownImgIndex(shownImgIndex - 1);
-               setwindowSrc(props.item.images.main[shownImgIndex-1]);
+               setwindowSrc(props.item.images.main[shownImgIndex - 1]);
           } else {
-               setshownImgIndex(3);
-               setwindowSrc(props.item.images.main[3]);
+               setshownImgIndex(props.item.images.main.length-1);
+               setwindowSrc(
+                    props.item.images.main[props.item.images.main.length-1],
+               );
           }
-          
      };
      let nextImg = () => {
           if (props.item.images.main[shownImgIndex + 1]) {
                setshownImgIndex(shownImgIndex + 1);
-               setwindowSrc(props.item.images.main[shownImgIndex+1]);
+               setwindowSrc(props.item.images.main[shownImgIndex + 1]);
           } else {
                setshownImgIndex(0);
                setwindowSrc(props.item.images.main[0]);
           }
-          ;
      };
 
      return (
-          <div  >
+          <div>
                {shouldShow && (
                     <div
                          id="FullWindow"
@@ -68,7 +65,10 @@ export default function ProductBox(props) {
                               >
                                    <img src="./images/icon-next.svg" />
                               </button>
-                              <img className="rounded-md" src={windowSrc} />
+                              <img
+                                   className="rounded-md"
+                                   src={windowSrc}
+                              />
                          </div>
                     </div>
                )}
@@ -82,7 +82,10 @@ export default function ProductBox(props) {
                          />
                     </div>
                     <div className="md:w-1/2 w-11/12 h-full  flex items-center">
-                         <ProductDescription aboutText={props.item.aboutText} thumbnail={props.item.images.thumbnail[0]} />
+                         <ProductDescription
+                              aboutText={props.item.aboutText}
+                              thumbnail={props.item.images.thumbnail[0]}
+                         />
                     </div>
                </div>
           </div>
