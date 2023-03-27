@@ -1,12 +1,15 @@
 import React from "react";
 import { useContext } from "react";
-import cartContext from "../Context/CartContent/cartContext";
+import { useDispatch } from "react-redux";
+import { removeItemFromCart } from "../State/action-creator";
+ 
 
 export default function CartBoxModels(props) {
-     let items = useContext(cartContext)
-     let removeItem = () => {
-          items.removeItem(props.item.id)
-     }
+      const dispatch = useDispatch();
+      
+     const removeItem = () => {
+           console.log('a')
+      }
 
      return (
           <div className="w-full px-1 py-2 h-32 border-2">

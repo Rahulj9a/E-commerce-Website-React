@@ -1,8 +1,12 @@
 import React, { useState, useContext, useEffect}  from "react";
-import cartContext from "../../Context/CartContent/cartContext";
+/* import cartContext from "../../Context/CartContent/cartContext"; */
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "../../State/action-creator";
+
 
 export default function ProductDescription(props) {
-     const cartDetails = useContext(cartContext)
+     const dispatch = useDispatch()
+     /* const cartDetails = useContext(cartContext) */
      const [addQuantity, setaddQuantity] = useState(0);
  
      function increaseLocalQuan() {
@@ -13,7 +17,7 @@ export default function ProductDescription(props) {
            
           if(addQuantity) setaddQuantity(addQuantity-1);
      }
-     function updateinCart() {
+     /* function updateinCart() {
           let details = {
                
                image: props.thumbnail,
@@ -25,6 +29,9 @@ export default function ProductDescription(props) {
           };
           cartDetails.updateItems(addQuantity, props.aboutText.id,details)
           setaddQuantity(0)
+     } */
+     function addToCart() {
+          dispatch(addItemToCart({id:props.aboutText.id, quantity:addQuantity}) )
      }
       
       
@@ -95,7 +102,7 @@ export default function ProductDescription(props) {
                          <div className="w-4/6">
                               <button
                                    className="flex w-full items-center justify-center gap-2 rounded-md text-white bg-orange-500 py-1 hover:opacity-60 hover:border-orange-600 hover:border-2"
-                                   onClick={updateinCart}
+                                   onClick={addToCart}
                               >
                                    <img src="./images/icon-cart.svg" />
                                    <span>ADD TO CART</span>

@@ -8,11 +8,11 @@ export const fetchItems = () => {
      };
 };
 
-export const addItemToCart = (item) => {
+export const addItemToCart = (details) => {
      return (dispatch) => {
           dispatch({
                type: "addToCart",
-               payload: item,
+               payload: details,
           });
      };
 };

@@ -1,11 +1,19 @@
-const reducer = (state = [], action) => {
-    if (action.type === 'addToCart') {
-        console.log("added to cart")
-    } else if (action.type === 'removeFromCart') {
-        console.log('removed from cart')
-    } else {
-        return state;
-    }
+const initialState = {
+     
 };
 
-export default reducer
+const cartReducer = (state = initialState, action) => {
+     if (action.type === "addToCart") {
+         state = { ...state, [action.payload.id]: action.payload.quantity }
+         
+         return state
+     } else if (action.type === "removeFromCart") {
+         state = delete state[action.id]
+         
+       return state
+     } else {
+          return state;
+     }
+};
+
+export default cartReducer;
