@@ -4,11 +4,14 @@ import CartBoxModels from "./CartBoxModels";
 import { useSelector } from "react-redux";
 
 export default function CartBox(props) {
-     const items = useSelector((state)=>state.cart)
-     console.log(items, 2)
+     const CartState = useSelector((state)=>state.cart)
+     
 
-     let productsSelected = Object.values(items);
-     console.log(productsSelected, 3)
+     const { items } = useSelector((state) => state.items);
+     let itemList = items.itemlist; 
+      
+     let productsSelected = Object.keys(CartState)
+
      
      return (
           <div className="z-10 border-2 bg-white  w-72 h-48 overflow-auto rounded-md">

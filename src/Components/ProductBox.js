@@ -13,7 +13,7 @@ export default function ProductBox(props) {
                setshouldShow(true);
           }
      };
-     let showSrc = (e) => {
+     let showSrc = () => {
           ChangeVis();
 
           setwindowSrc(props.item.images.main[0]);
@@ -83,7 +83,7 @@ export default function ProductBox(props) {
                     </div>
                     <div className="md:w-1/2 w-11/12 h-full  flex items-center">
                          <ProductDescription
-                              aboutText={props.item.aboutText}
+                              aboutText={props.item}
                               thumbnail={props.item.images.thumbnail[0]}
                          />
                     </div>

@@ -1,17 +1,27 @@
 const initialState = {
-     items: [],
+     items: {},
      loading: true,
 };
 
 const itemsReducer = (state = initialState, action) => {
-     switch (action.type) {
-          case "FETCH_ITEMS_REQUEST":
-               return { ...state, loading: true };
-          case "FETCH_ITEMS_SUCCESS":
-               return { ...state, items: action.payload, loading: false };
-          default:
-               return state;
+      
+     if (action.type === "pending") {
+          return { ...state, loading: true };
      }
+     else if (action.type === "fullfill") {
+           
+          return {
+               ...state,
+               items: Object.assign({}, state.items, action.payload),
+               loading: false,
+          }
+     } 
+     else {
+          return state
+     }
+     
 };
+
+ 
 
 export default itemsReducer;
