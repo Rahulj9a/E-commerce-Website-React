@@ -4,16 +4,11 @@ import CartBox from "./CartBox";
 import ProductBox from "./ProductBox";
 import { useSelector } from "react-redux";
 
-export default   function MainBody(props) {
-    
+export default function MainBody(props) {
+     let { items, loading } = useSelector((state) => state.items);
 
-     
-     let {items, loading} =  useSelector((state) => state.items);
-       
-     console.log(items)
-     let itemList = Object.values(items)
-     console.log(itemList)
-      
+     let itemList = Object.values(items);
+
      if (loading) {
           return <div>Loading...</div>;
      } else {

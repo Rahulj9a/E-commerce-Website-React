@@ -1,9 +1,11 @@
-import React,{useContext,useEffect} from "react";
-import cartContext from "../Context/CartContent/cartContext";
+import React from "react";
+import { useSelector } from "react-redux";
 
 function Navbar(props) {
-     let cartDetails =  useContext(cartContext) 
-     
+     const CartDetails = useSelector((state) => state.cart);
+     let cartvalues = Object.values(CartDetails)
+      
+     let itemNumbers = cartvalues.length==0?0:cartvalues.reduce((a,b)=>a+b)
      return (
           <div className="md:h-24 h-12 ">
                <div className="md:h-20 h-10 flex borderb-1px justify-between">
@@ -50,8 +52,8 @@ function Navbar(props) {
                                    className="w-6"
                               />
                                 
-                                   <div className={`w-5 h-4 rounded-md bg-orange-400 absolute m-auto -top-1 -right-1 text-center text-xs text-white ${cartDetails.state.num?"block":"hidden"}`}>
-                                        {cartDetails.state.num}
+                                   <div className={`w-5 h-4 rounded-md bg-orange-400 absolute m-auto -top-1 -right-1 text-center text-xs text-white ${itemNumbers?"block":"hidden"}`}>
+                                        {itemNumbers}
                                    </div>
                                
                          </button>

@@ -3,8 +3,10 @@ const initialState = {
 };
 
 const cartReducer = (state = initialState, action) => {
+ 
+     
      if (action.type === "addToCart") {
-         state = { ...state, [action.payload.id]: action.payload.quantity }
+          state = Object.assign({}, state, action.payload)
          
          return state
      } else if (action.type === "removeFromCart") {

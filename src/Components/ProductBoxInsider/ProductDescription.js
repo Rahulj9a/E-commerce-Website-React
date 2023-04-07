@@ -7,15 +7,15 @@ import { addItemToCart } from "../../State/action-creator";
 export default function ProductDescription(props) {
      const dispatch = useDispatch()
      /* const cartDetails = useContext(cartContext) */
-     const [addQuantity, setaddQuantity] = useState(0);
+     const [Quantity, setQuantity] = useState(0);
  
      function increaseLocalQuan() {
            
-          setaddQuantity(addQuantity+1)
+          setQuantity(Quantity+1)
      }
      function decreaseLocalQuan() {
            
-          if(addQuantity) setaddQuantity(addQuantity-1);
+          if(Quantity) setQuantity(Quantity-1);
      }
      /* function updateinCart() {
           let details = {
@@ -31,7 +31,11 @@ export default function ProductDescription(props) {
           setaddQuantity(0)
      } */
      function addToCart() {
-          dispatch(addItemToCart({id:props.aboutText.id, quantity:addQuantity}) )
+          let id = props.aboutText.id
+          let newObj = { [id]:Quantity }
+           setQuantity(0)
+             
+          dispatch(addItemToCart(newObj))
      }
       
       
@@ -88,7 +92,7 @@ export default function ProductDescription(props) {
                                         src="./images/icon-minus.svg"
                                    />
                               </button>
-                              <div className="px-8 py-2">{addQuantity}</div>
+                              <div className="px-8 py-2">{Quantity}</div>
                               <button
                                    className="px-2 py-2"
                                    onClick={increaseLocalQuan}
