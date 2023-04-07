@@ -5,7 +5,7 @@ function Navbar(props) {
      const CartDetails = useSelector((state) => state.cart);
      let cartvalues = Object.values(CartDetails)
       
-     let itemNumbers = cartvalues.length==0?0:cartvalues.reduce((a,b)=>a+b)
+     let itemNumbers = cartvalues.length===0?0:cartvalues.reduce((a,b)=>a+b)
      return (
           <div className="md:h-24 h-12 ">
                <div className="md:h-20 h-10 flex borderb-1px justify-between">

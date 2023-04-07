@@ -1,5 +1,5 @@
-import React, { useState, useContext, useEffect}  from "react";
-/* import cartContext from "../../Context/CartContent/cartContext"; */
+import React, { useState }  from "react";
+ 
 import { useDispatch } from "react-redux";
 import { addItemToCart } from "../../State/action-creator";
 

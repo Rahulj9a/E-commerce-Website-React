@@ -3,7 +3,7 @@ import React, { useState, useEffect} from "react";
 
 import Navbar from "./Components/Navbar";
 import MainBody from "./Components/MainBody";
-import CartState from "./Context/CartContent/CartState";
+ 
 import { useDispatch } from "react-redux";
 import { fetchItems } from "./State/action-creator/index";
 
@@ -46,7 +46,7 @@ function App() {
      ];
      return (
           <>
-               <CartState>
+                
                     <div className="lg:w-9/12 md:w-11/12 sm:w-11/12 absolute m-auto left-0 right-0 h-full ">
                          <div>
                               <Navbar
@@ -60,7 +60,7 @@ function App() {
                               <MainBody cartBoxVisibility={showCartBox} />
                          </div>
                     </div>
-               </CartState>
+                
           </>
      );
 }
