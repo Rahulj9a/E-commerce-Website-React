@@ -14,19 +14,7 @@ export default function ProductDescription(props) {
      function decreaseLocalQuan() {
           if (Quantity) setQuantity(Quantity - 1);
      }
-     /* function updateinCart() {
-          let details = {
-               
-               image: props.thumbnail,
-               productname: props.aboutText.name,
-               price: props.aboutText.price,
-               discount: props.aboutText.discount.active
-                    ? props.aboutText.discount.percent
-                    : 0,
-          };
-          cartDetails.updateItems(addQuantity, props.aboutText.id,details)
-          setaddQuantity(0)
-     } */
+
      function addToCart() {
           let id = props.aboutText.id;
           let newObj = { [id]: Quantity };
@@ -36,7 +24,7 @@ export default function ProductDescription(props) {
      }
 
      return (
-          <div className="w-full p-2 flex ">
+          <div className="w-full p-2 flex self-center">
                <div className="flex flex-col gap-4">
                     <h2 className="text-orange-400 font-medium text-lg">
                          {props.aboutText.companyname} Company
@@ -74,29 +62,29 @@ export default function ProductDescription(props) {
                               <del>${props.aboutText.price}</del>
                          </div>
                     </div>
-                    <div className="flex items-center">
-                         <div className="flex w-2/6">
+                    <div className="flex justify-around lg:flex-row flex-col gap-2 ">
+                         <div className="flex lg:w-2/6 w-fit self-center">
                               <button
                                    className="px-2 py-2"
                                    onClick={decreaseLocalQuan}>
                                    <img
-                                        className="hover:opacity-80"
+                                        className="hover:opacity-80 h-1"
                                         src="./images/icon-minus.svg"
                                         alt="minus"
                                    />
                               </button>
-                              <div className="px-8 py-2">{Quantity}</div>
+                              <div className="px-6 py-2">{Quantity}</div>
                               <button
-                                   className="px-2 py-2"
+                                   className="p-1 border-2"
                                    onClick={increaseLocalQuan}>
                                    <img
-                                        className="hover:opacity-80"
+                                        className="hover:opacity-80 h-3"
                                         src="./images/icon-plus.svg"
                                         alt="plus"
                                    />
                               </button>
                          </div>
-                         <div className="w-4/6">
+                         <div className="lg:w-4/6 w-full">
                               <button
                                    className="flex w-full items-center justify-center gap-2 rounded-md text-white bg-orange-500 py-1 hover:opacity-60 hover:border-orange-600 hover:border-2"
                                    onClick={addToCart}>

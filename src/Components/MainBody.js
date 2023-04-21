@@ -13,30 +13,17 @@ export default function MainBody(props) {
           return <div>Loading...</div>;
      } else {
           return (
-               <div
-                    w-full
-                    h-full
-                    border-2
-                    border-red
-                    relative
-               >
+               <div w-full h-full border-2 border-red relative>
                     <div
-                         id="CartCorner"
                          className="absolute m-auto right-0 top-16"
-                         style={{ display: `${props.cartBoxVisibility}` }}
-                    >
+                         style={{ display: `${props.cartBoxVisibility}` }}>
                          <CartBox list={itemList} />
                     </div>
 
                     {itemList.map((item) => {
                          let id = item.id;
                          console.log(id);
-                         return (
-                              <ProductBox
-                                   key={id}
-                                   item={item}
-                              />
-                         );
+                         return <ProductBox key={id} item={item} />;
                     })}
                </div>
           );
